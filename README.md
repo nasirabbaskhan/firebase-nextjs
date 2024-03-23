@@ -38,6 +38,7 @@ const [email, setEmail] = useState("");
 const [student, setStudent] = useState<any[]>([]);
 const [isLooading, setIsLoading] = useState(false);
 const [id, setId] = useState("");
+
 // Adding data into firebase Database
 const addDocumentHandler = async () => {
 try {
@@ -93,73 +94,3 @@ email: "nasirabbas@gmail.com",
 });
 fetchData();
 };
-return (
-<>
-
-<div className="flex flex-col gap-3 max-w-96 mx-auto mt-9">
-<input
-onChange={(e) => setFirstName(e.target.value)}
-className="outline-none border border-black rounded-md p-1 "
-type="text"
-placeholder="Inter your first name"
-/>
-<input
-onChange={(e) => setLastName(e.target.value)}
-className="outline-none border border-black rounded-md p-1"
-type="text"
-placeholder="Inter your last name"
-/>
-<input
-onChange={(e) => setEmail(e.target.value)}
-className="outline-none border border-black rounded-md p-1"
-type="email"
-placeholder="Inter your email"
-/>
-<button
-          onClick={addDocumentHandler}
-          className="bg-slate-600 py-2 px-3 text-white"
-        >
-Add Documents
-</button>
-<div>firstName:{firstName}</div>
-<div>lastName:{lastName}</div>
-<div>email:{email}</div>
-</div>
-<div className="max-w-[400px] mx-auto mt-10">
-<div className="text-3xl font-bold text-blue-800">Student Data</div>
-<table>
-<thead>
-<tr>
-<th className="border  border-blue-950 px-5 py-2">FirstName</th>
-<th className="border  border-blue-950 px-5 py-2">LastName</th>
-<th className="border  border-blue-950 px-5 py-2">Gemail</th>
-<th className="border  border-blue-950 px-5 py-2">Action</th>
-</tr>
-</thead>
-<tbody>
-{student.map((item) => {
-return (
-<tr>
-<td className="border  border-blue-950 px-5 py-2 ">
-{item.firstName}
-</td>
-<td className="border  border-blue-950 px-5 py-2">
-{item.lastName}
-</td>
-<td className="border  border-blue-950 px-5 py-2">
-{item.email}
-</td>
-<td
-onClick={() => deleteHandler(item.id)}
-className="bg-blue-800 border border-blue-950 text-white px-5 py-2 cursor-pointer" >
-{isLooading && item.id == id ? "Loading..." : "Delete"}
-</td>
-</tr>
-);
-})}
-</tbody>
-</table>
-</div>
-</>
-);
-}
