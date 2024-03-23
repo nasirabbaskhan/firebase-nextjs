@@ -75,7 +75,7 @@ export default function TodoApp() {
     fetchData();
   };
   return (
-    <>
+    <div className=" bg-gradient-to-tr from-red-400 to-red-500 p-2">
       <div className="flex flex-col gap-3  mt-9 bg-slate-300 px-5 py-5 max-w-[600px] mx-auto rounded-md shadow-lg">
         <div className="text-2xl">Student Form</div>
         <input
@@ -157,6 +157,6 @@ export default function TodoApp() {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 }
