@@ -115,9 +115,9 @@ export default function TodoApp() {
             </tr>
           </thead>
           <tbody>
-            {student.map((item) => {
+            {student.map((item, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td className="border  border-blue-950 px-5 py-2 ">
                     {item.firstName}
                   </td>
